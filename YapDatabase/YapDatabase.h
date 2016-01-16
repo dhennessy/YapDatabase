@@ -250,6 +250,12 @@ extern NSString *const YapDatabaseAllKeysRemovedKey;
                                metadataPostSanitizer:(YapDatabasePostSanitizer)metadataPostSanitizer
                                              options:(YapDatabaseOptions *)options;
 
+/**
+ * Remove this database instance as the exclusive user of the database path.
+ * The actual file close will occur once the instance is dealloc'd - this allows a new instance to be created.
+**/
+- (void)releaseExclusiveAccess;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Properties
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
